@@ -127,6 +127,11 @@ class Blockade(object):
             port_bindings=port_bindings, links=links)
 
         def create_container():
+            sys.stdout.write("blockade_id: %s\n" % blockade_id)
+            
+            if container.cid != '':
+                return container.cid
+                
             # try to create container
             response = self.docker_client.create_container(
                 container.image,
@@ -138,6 +143,8 @@ class Blockade(object):
                 environment=container.environment,
                 host_config=host_config,
                 labels={"blockade.id": blockade_id})
+
+            sys.stdout.write("create_container_response: %s\n" % response)
 
             return response['Id']
 

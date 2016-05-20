@@ -110,6 +110,11 @@ a container.
 
 ``dns`` is optional and specifies a list of DNS-servers for container.
 
+``cid``
+---------
+
+``cid`` is optional and spicifies already created container. Note that container must have --label blockade.id="docker"
+
 ``start_delay``
 ---------------
 
